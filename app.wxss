@@ -1,0 +1,7 @@
+/**app.wxss**/
+
+text {
+  font-family: "微软雅黑";
+  font-size: 24rpx;
+  color: #666;
+}

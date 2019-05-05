@@ -1,0 +1,25 @@
+<!-- 引入template 模板，必须有闭合的标签;(这里相对路径也行，绝对路径也行) -->
+<import src="post-item/post-item-template.wxml" />
+<view>
+  <!--vertical='{{false}}' 这样小程序读取的时候，就会认为是false，不会垂直轮播，如果直接加false，没有双大括号，小程序会解析引号中的字符串转化为bool值，只要有值，就会认为是true  -->
+  <swiper catchtap='onSwiperTap' vertical='{{false}}' indicator-dots='true' autoplay='true' interval='2000'>
+    <swiper-item>
+      <image src='/images/js.jpg' data-postId="2"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/images/html.jpg' data-postId="3"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/images/css.jpg' data-postId="4"></image>
+    </swiper-item>
+  </swiper>
+  <block wx:for="{{posts_key}}" wx:for-item="item" wx:for-index="index" wx:key="">
+    <!-- template -->
+    <!-- 这里is的值： 模板的名字，后边的data表示，所获得的数据中的每一项 -->
+    <!-- data="{{...item}}" 这里小技巧，三个点相当于把数据直接平铺，所以在差值表达式中，必须要加 item. 了 -->
+    <view catchtap='onPostTap' data-postId="{{item.postId}}">
+      <!-- 引用模板 -->
+      <template is="postItem" data="{{item}}" />
+    </view>
+  </block>
+</view>

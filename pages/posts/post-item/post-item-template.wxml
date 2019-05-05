@@ -1,0 +1,18 @@
+<import src="post-item-template/post-items-template.wxml" />
+
+<!-- name属性是 模板名称 -->
+<template name="postItem">
+  <view class='post-container'>
+    <view class='post-author-date'>
+      <image wx:if="{{true}}" class='post-author' src='{{item.avatar}}'></image>
+      <text class='post-date'>{{item.date}}</text>
+    </view>
+    <text class='post-title'>{{item.title}}</text>
+    <image class='post-image' src='{{item.imgSrc}}'></image>
+    <text class='post-content'>{{item.content}}</text>
+    <view class='post-like'>
+      <!-- 注意：在模板template中，最好要用绝对路径，因为以后要引用这个模板不一定是哪一个目录级别的文件要引用，所以用绝对路径 -->
+      <template is="postItems" data="{{item}}" />
+    </view>
+  </view>
+</template>

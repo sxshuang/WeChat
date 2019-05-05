@@ -1,0 +1,12 @@
+@import "../movie/movie-template.wxss";
+
+.single-view-container {
+  float: left;
+  margin-bottom: 40rpx;
+}
+
+.grid-container {
+  /* 这里给一个高度，为了使用scroll-view ，官网给出必须给一个Y值 */
+  height: 1300rpx;
+  margin: 40rpx 0 40rpx 6rpx;
+}

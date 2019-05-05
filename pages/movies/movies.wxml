@@ -1,0 +1,26 @@
+<import src="movie-list/movie-list-template.wxml" />
+<import src="movie-grid/movie-grid-template.wxml" />
+
+<!-- 搜索框 -->
+<view class='search'>
+  <icon type='search' class='search-img' size='13' color='#405f80'></icon>
+  <input type='text' placeholder='复仇者联盟4' placeholder-class="placeholder" bindfocus='onBindFocus' bindblur="onBindBlur"></input>
+  <image wx:if="{{searchPanelShow}}" class='xx-img' src='/images/icon/xx.png' bindtap='onCancelImgeTap'></image>
+</view>
+
+<view class='container' wx:if="{{containerShow}}">
+  <view class="movies-template">
+    <!-- 数据绑定，这里的movies是一个数组，写模板从里层向外写，绑定数据，从外向里 -->
+    <template is="movieListTemplate" data="{{...inTheaters}}" />
+  </view>
+  <view class="movies-template">
+    <template is="movieListTemplate" data="{{...comingSoon}}" />
+  </view>
+  <view class="movies-template">
+    <template is="movieListTemplate" data="{{...top250}}" />
+  </view>
+</view>
+<!-- 这里加一个页面，代表搜索页面 -->
+<view class='search-panel' wx:if="{{searchPanelShow}}">
+  <template is="movieGridTemplate" data="{{...searchResult}}"></template>
+</view>

@@ -1,0 +1,23 @@
+<!-- 先静后动，先样式后数据 -->
+<view class='container'>
+  <image class='head-image' src="{{isPlayingMusic?postDataList.music.coverImg:postDataList.headImgSrc}}"></image>
+  <image catchtap='onMusicTap' class='audio' src="{{isPlayingMusic?'/images/music/music-stop.png':'/images/music/music-start.png'}}"></image>
+  <view class='author-date'>
+    <image class='avatar' src='{{postDataList.avatar}}'></image>
+    <text class='author'>{{postDataList.author}}</text>
+    <text class='const-text'>发表于</text>
+    <text class='date'>{{postDataList.dateTime}}</text>
+  </view>
+  <text class='title'>{{postDataList.title}}</text>
+  <view class='tool'>
+    <view class='circle-img'>
+      <image catchtap='onCollectionTap' wx:if="{{collected}}" src='/images/icon/sc.png'></image>
+      <image catchtap='onCollectionTap' wx:else src='/images/icon/wsc.png'></image>
+      <image catchtap='onShareTap' class='share-img' src='/images/icon/fx.png'></image>
+    </view>
+    <!-- 这个是直线 -->
+    <view class='horizon'></view>
+
+  </view>
+  <text class='detail'>{{postDataList.detail}}</text>
+</view>
